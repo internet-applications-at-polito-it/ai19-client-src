@@ -1,20 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to <span (click)="toggleTitle($event)">{{ title }}</span>!
-  </h1>
-  <img width="300" alt="Angular Logo" src="assets/angular-logo-0.png">
-</div>
-<h2>Here are some links to help you start: </h2>
+<h1>{{title}}</h1>
+<h2>My favorite hero is: {{myHero.str}}</h2>
+<input type="text" [value]="myHero.str">
+<input type="text" [(ngModel)]="myHero.str">
+
+<!-- <input type="text" [value]="myHero.str" (input)="myHero.str=$event.target.value"> -->
+
+<button (click)="shiftHeroUp()"><</button>
+<button (click)="shiftHeroDown()">></button>
+
+<p>Heroes:</p>
 <ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
+  <li *ngFor="let hero of heroes">
+    {{ hero.str }}
+    </li>
 </ul>
 
+<p *ngIf="heroes.length > 3">There are many heroes!</p>
