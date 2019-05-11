@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatButtonModule , MatTableModule, MatFormFieldModule, MatInputModule, MatToolbarModule} from '@angular/material';
+import {MatTabsModule, MatToolbarModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -10,8 +10,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule, MatToolbarModule,
-    MatButtonModule, MatTableModule, MatFormFieldModule, MatInputModule
+    BrowserAnimationsModule, BrowserModule, 
+    MatTabsModule, MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
