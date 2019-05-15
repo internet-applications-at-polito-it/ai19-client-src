@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<form #f="ngForm">
+  <div>
+    <label for="username">Username:</label>
+    <!-- put or delete required: changes valid poperty -->
+    <input type="text" name="username" #field="ngModel" ngModel required> 
+  </div>
+  <div [hidden]="field.valid || field.pristine">
+    Username is required
+  </div>    
+  <div>
+    <label for="age">Age:</label>
+    <!-- put or delete required: changes valid poperty -->
+    <input type="text" name="age" #age="ngModel" ngModel pattern="[0-9]+"> 
+  </div> 
+</form>
+<br>
+form value: {{ f.value | json }}<br>
+form status: {{ f.status | json }}<br>
+form value: {{ field.valid | json }}<br>
+
+<!-- field value: {{ f.value.username.valid | json }} -->
