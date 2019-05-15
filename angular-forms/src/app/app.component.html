@@ -1,0 +1,10 @@
+<form [formGroup]="profileForm">
+  firstName: <input type="text" formControlName="firstName"><br>
+  lastName: <input type="text" formControlName="lastName"><br>
+  <span *ngIf="profileForm.controls.firstName.errors?.required"> Name is required. </span> 
+</form>
+form value: {{ profileForm.value | json }}<br>
+form status: {{ profileForm.status | json }}<br>
+form valid: {{ profileForm.valid | json }}<br>
+form firstName status: {{ profileForm.controls.firstName.status | json }}<br>
+form lastName status: {{ profileForm.controls.lastName.status | json }}<br>
