@@ -1,0 +1,22 @@
+<html>
+<body>
+<button id="myButton">Click me!</button>
+<button id="yourButton">Click you!</button>
+<script>
+function addClickCntHandler(componentId) {
+  var clickCounter = 0;
+  document.getElementById(componentId)
+  .addEventListener('click', function () {
+    clickCounter++;
+    console.log("Button " + componentId + " clicked " + clickCounter + " times");
+    st();
+  });
+}
+function st() { 
+    console.trace();
+}
+addClickCntHandler('myButton');
+addClickCntHandler('yourButton');
+</script>
+</body>
+</html>
