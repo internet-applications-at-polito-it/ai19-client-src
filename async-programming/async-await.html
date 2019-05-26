@@ -1,0 +1,17 @@
+<html>
+
+<body>
+  <script>
+    async function getPosts() {
+      let p1 = await fetch("http://localhost:3000/people/1")
+      let p2 = await fetch("http://localhost:3000/people/2")
+      let post1 = await (await p1).json()
+      let post2 = await (await p2).json()
+      console.log(post1)
+      console.log(post2)
+    }
+    getPosts()
+  </script>
+</body>
+
+</html>

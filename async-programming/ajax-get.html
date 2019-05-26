@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script src="jquery.js"></script>
+  </head>
+  <body>
+    <script>
+
+function myTask() {
+var csl = $("#csl")
+
+var cnt = 3;
+console.log("Delay start: " + cnt + " seconds.");
+
+$.get( "https://my-json-server.typicode.com/typicode/demo/posts", 
+  function( data ) { 
+    csl.html( "Data Loaded: " + JSON.stringify(data) ); 
+    console.log("Data Loaded: " + JSON.stringify(data) );
+  }
+);
+
+var timestamp = Date.now() + cnt*1000;
+while (Date.now() < timestamp);
+console.log("Delay end")
+
+}
+    </script>
+  </body>
+</html>

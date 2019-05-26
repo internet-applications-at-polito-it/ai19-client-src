@@ -1,0 +1,26 @@
+<html>
+  <head><script src="jquery.js"></script></head>
+<body>
+  <pre id="csl"></pre>
+<script>
+let chapters = [ 1, 2, 3 ];
+let apiurl = "http://localhost:3000/planets/";
+// let apiurl = "https://swapi.co/api/planets/";
+let chapterUrls = chapters.map( function (x) { return apiurl+x; } );
+
+function json(resp) { return resp.json(); }
+
+// Loop through our chapter urls
+chapterUrls.reduce(  function (sequence, chapterUrl)   {
+    // Add these actions to the end of the sequence
+    return sequence.then(function () {
+      return fetch(chapterUrl,{mode: 'cors'}).then(json);
+    }).then(function (chapter) {
+        $('#csl').append(chapter.name + '\n'); 
+    });
+  }, Promise.resolve())
+
+
+</script>
+</body>
+</html>

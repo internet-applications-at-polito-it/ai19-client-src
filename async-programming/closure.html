@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <script src="jquery.js"></script>
+</head>
+
+<body>
+  <button id="btn">
+    click me
+  </button>
+  <p id="csl">
+  </p>
+  <script>    
+    function clickCountFn() {
+      clickCount++
+      document.getElementById("csl").innerHTML = clickCount;
+    }
+
+    (function () {
+      var clickCount = 0;
+      // document.getElementById("btn").addEventListener('click', clickCountFn)
+
+      document.getElementById("btn").addEventListener('click',
+        // clickCountFn
+        // /*
+        function () {
+          clickCount++
+          document.getElementById("csl").innerHTML = clickCount;
+        }
+        // */
+      );
+    })()
+
+    // document.getElementById("csl").innerHTML = clickCount;
+  </script>
+</body>
+
+</html>

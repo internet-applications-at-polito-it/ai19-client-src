@@ -1,0 +1,45 @@
+<html>
+  <head><script src="jquery.js"></script></head>
+<body>
+  <pre id="csl"></pre>
+<script>
+let chapters = [ 1, 2, 3 ];
+let apiurl = "http://localhost:3000/planets/";
+// let apiurl = "https://swapi.co/api/planets/";
+let chapterUrls = chapters.map( function (x) { return apiurl+x; } );
+
+function json(resp) { return resp.json(); }
+
+chapterUrls.forEach(
+  function (chapterUrl) {
+    // Fetch chapter
+    fetch(chapterUrl,{mode: 'cors'}).then(json).then(
+      function (chapter) {
+        // and add it to the page
+        // addHtmlToPage(chapter.html);
+        // console.log(chapter.name);
+        $('#csl').append(chapter.name + '\n');
+      }
+    );
+  }
+);
+
+/*
+// Start off with a promise that always resolves
+var sequence = Promise.resolve();
+// Loop through our chapter urls
+chapterUrls.forEach(function(chapterUrl) {
+  // Add these actions to the end of the sequence
+  sequence = sequence.then(function() {
+    return fetch(chapterUrl,{mode: 'cors'}).then(json);
+  }).then(function(chapter) {
+    // addHtmlToPage(chapter.html);
+    console.log(': '+chapter.name);
+  });
+})
+*/
+
+
+</script>
+</body>
+</html>
