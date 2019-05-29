@@ -1,0 +1,22 @@
+
+<p>
+New item name: <input type=text #item>
+<button (click)="addItem(item)">Add</button>
+</p>
+
+<div *ngIf="data$ | async as data; else loadError">
+  <div>
+    get: {{ (data$ | async) | json }}
+    <br>
+    post: {{ (item$ | async) | json }}
+  </div>
+  <ul>
+    <li *ngFor="let o of data">{{o.id}} - {{o.name}}</li>
+  </ul>
+</div>
+
+<ng-template #loadError>
+  <div class="error">
+    Load error.
+  </div>
+</ng-template>
