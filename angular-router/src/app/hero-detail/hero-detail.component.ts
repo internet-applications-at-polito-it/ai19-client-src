@@ -28,11 +28,11 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
 
   getHero(): void {
     /*
+    // using this "snapshot" implementation the view is not reloaded
     const id = +this.route.snapshot.paramMap.get('id');
     this.hero = this.heroService.getHero(id);
     */
-    // add this to the component and show it is not working
-    // <a routerLink="/heroes/{{hero.id+10}}">next {{hero.id+10}}</a>
+    /* or use the following right implementation */
     this.paramMapSub =
     this.route.paramMap.subscribe((params: ParamMap) => {
       const id = +params.get('id');
