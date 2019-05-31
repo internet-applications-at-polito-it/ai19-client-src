@@ -1,34 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms'; 
-import { RouterModule, Routes } from '@angular/router';
+
+import { AppRoutingModule } from './app-routing.module';
+import { HeroesModule } from './heroes/heroes.module';
 
 import { AppComponent } from './app.component';
-import { HeroService } from './hero.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroListComponent } from './hero-list/hero-list.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-
-const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'heroes', component: HeroListComponent },
-  { path: 'heroes/:id', component: HeroDetailComponent }
-];
 
 @NgModule({
   imports: [
     BrowserModule
     ,FormsModule
-    ,RouterModule.forRoot(routes, { enableTracing: true })
+    ,HeroesModule,
+    AppRoutingModule
   ],
   declarations: [
-    AppComponent,
-    DashboardComponent,
-    HeroListComponent,
-    HeroDetailComponent
+    AppComponent
   ],
   bootstrap: [ AppComponent ],
-  providers: [HeroService]
 })
 export class AppModule { }
-
