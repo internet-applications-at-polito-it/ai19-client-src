@@ -27,24 +27,24 @@ export class HeroDetailComponent implements OnInit {
   }
 
   getHero(): void {
-  /*
-    this.hero$ = this.route.paramMap
-      .switchMap((params: ParamMap) =>
-        this.heroService.getHero(Number(params.get('id'))));
-  */
+    /*
+      this.hero$ = this.route.paramMap
+        .switchMap((params: ParamMap) =>
+          this.heroService.getHero(Number(params.get('id'))));
+    */
 
     this.route.params.subscribe(params => {
       this.hero = this.heroService.getHero(Number(params.id));
       console.dir(this.hero);
     });
 
-/*
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.hero = this.heroService.getHero(id);
-*/
+    /*
+        const id = +this.route.snapshot.paramMap.get('id');
+        this.hero = this.heroService.getHero(id);
+    */
   }
 
   goBack(): void {
-    this.location.back(); 
+    this.location.back();
   }
 }

@@ -1,10 +1,34 @@
 <h2>My Heroes</h2>
+Nested route: master-detail
 <ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/heroes/{{hero.id}}">
+  <li>[&nbsp;&nbsp;]</li>
+  <li *ngFor="let hero of heroes">&nbsp;
+    <a [routerLink]="[''+hero.id]">
       <span>{{hero.id}}</span> {{hero.name}}
     </a>
   </li>
 </ul>
+Auxiliary route: img
+<ul class="heroes">
+  <li>img</li>
+  <li *ngFor="let hero of heroes">&nbsp;
+    <a [routerLink]="[{ outlets: { 'primary': ''+hero.id, 'aside': ['img'] } }]">
+      <span>{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul>
+Auxiliary route: btn
+<ul class="heroes">
+  <li>btn</li>
+  <li *ngFor="let hero of heroes">&nbsp;
+    <a [routerLink]="[{ outlets: { 'primary': ''+hero.id, 'aside': 'btn' } }]">
+      <span>{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul>
+<hr>
+<router-outlet></router-outlet>
+<hr>
+<router-outlet name="aside"></router-outlet>
 
-<router-outlet></router-outlet> 
+<!-- http://localhost:4200/heroes/(20//aside:img) -->
