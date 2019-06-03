@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from './app.service';
+import { AppObsService } from './app2.service';
+import { getAllDebugNodes } from '@angular/core/src/debug/debug_node';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +12,14 @@ export class AppComponent implements OnInit {
   data$;
   item$;
 
-  constructor(private service: AppService) {}
+  constructor(private service: AppObsService) {}
 
   ngOnInit() {
-    this.data$ = this.service.getAll();
+    this.getAll();
   }
 
   getAll() {
-    this.data$ = this.service.getAll();
+    this.data$ = this.service.getData();
   }
 
   addItem(item) {

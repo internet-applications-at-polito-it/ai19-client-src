@@ -8,7 +8,7 @@ New item name: <input type=text #item>
   <div>
     get: {{ (data$ | async) | json }}
     <br>
-    post: {{ (item$ | async) | json }}
+    <!-- post: {{ (item$ | async) | json }} -->
   </div>
   <ul>
     <li *ngFor="let o of data">{{o.id}} - {{o.name}}</li>

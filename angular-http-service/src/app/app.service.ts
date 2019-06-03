@@ -47,7 +47,7 @@ export class AppService {
     ).pipe(
       first(),
       catchError( err => { console.error(err); return of(null); } )
-    )
+    );
     // .subscribe( x => { console.log('Post: ' + JSON.stringify(x)); } );
   }
 
