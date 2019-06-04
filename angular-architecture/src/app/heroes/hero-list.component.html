@@ -1,0 +1,9 @@
+<ul class="heroes">
+  <li *ngFor="let hero of heroes" (click)="selectHero(hero)">
+    <!-- <a routerLink="/heroes/{{hero.id}}"> -->
+      <span>{{hero.id}}</span> {{hero.name}}
+    <!-- </a> -->
+  </li>
+</ul>
+
+<!-- <router-outlet></router-outlet> -->

@@ -1,0 +1,4 @@
+<h2>My Heroes</h2>
+<div>Selected: {{selectedHero?.name}}</div>
+<app-hero-list [heroes]="heroList$ | async" (select)="selectHero($event)"></app-hero-list>
+<app-hero-detail [hero]="selectedHero" (save)="saveHero(hero)" (back)="goBack()"></app-hero-detail>
